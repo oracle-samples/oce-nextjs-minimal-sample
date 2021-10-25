@@ -1,0 +1,315 @@
+/**
+ * Copyright (c) 2021, Oracle and/or its affiliates.
+ * Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+ */
+
+ /**
+ * Styles for the whole application.
+ */
+ body {
+  font-family: -apple-system, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin: 0;
+  max-width: 1700px;
+}
+
+.error {
+  color: gray;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+/**
+ *  Styles for the Footer component.
+ */
+
+/* Style specific to the footer */
+footer {
+  background-color: #333333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  padding-top: 0.9vw;
+  padding-bottom: 1vw;
+}
+
+/* Styles for the social media bar and buttons */
+.social-media-menu {
+  margin-top: 1vw;
+}
+.social-media-menu img {
+  width: 24px; 
+  height: 24px;
+  margin: 0px 5px 0px 0px;
+}
+
+/* Style for the footer on a small screen
+   Social bar is on a row below the icon */
+@media screen and (max-width: 767px) {
+  footer {
+    flex-direction: column;
+  }
+
+  /* Styles for the social media bar and buttons */
+  .social-media-menu {
+    margin-top: 2.8vw;
+    align-self: flex-end;
+  }
+}
+
+/**
+ *  Styles for the Header component.
+ */
+
+/* Style specific to the header */
+header {
+  background-color: #333333;
+  display: flex; /* default direction is row, which is what we want */
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  align-items: center;
+}
+
+header img {
+  max-height: 75px;
+  width:auto;
+}
+
+/* Style for the nav menu and its items*/
+
+/* Full width screen the nav button is not visible, its
+   only displayed on narrow screens */
+nav button {
+  display: none;
+}
+
+/* Nav menu items are a horizontal list (flex=row) with no bullets visible */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap; /* flex-direction flex-wrap */
+}
+nav li {
+  color: white;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 18px;
+  color: #bdbcbc;
+  font-weight: bold;
+}
+nav li a {
+  color: #bdbcbc;
+  cursor: pointer;
+}
+nav li a:hover {
+  color: #e1fa00;
+}
+nav li a.active {
+  color: #c0d600;
+}
+nav li a.active:hover {
+  color: #e1fa00;
+}
+
+/* Styles for the header on a small screen
+   Nav menu changes to a button with a drop down menu */
+@media screen and (max-width: 1023px) {
+  /* Make the header a little higher on narrow screens */
+  header {
+    padding-bottom: 4.6vw;
+  }
+
+  /* Define the appearance of the nav button which
+    is visible on narrower screens */
+  nav button {
+    display: inline-block;
+    background-color: #333333;
+    border-style: none;
+    outline: none;
+    font-size: 26px;
+    padding: 8px 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #bdbcbc;
+  }
+  nav button:hover {
+    color: #e1fa00;
+  }
+  nav button.active {
+    color: #c0d600;
+  }
+  nav button.active:hover {
+    color: #e1fa00;
+  }
+
+  /* On Narrow screens the nav menu is a vertical list rather than a
+      horizontal list, it is displayed in a bordered box displayed just
+      below the nav button. It has its "right" setting set, so it lines
+      up as desired with the nav button and its z-order set high so it
+      sits on top of everything */
+  nav ul {
+    display: none;
+    position: fixed;
+    background-color: #333333;
+    right: 6vw;
+    list-style-type: none;
+    margin: 0;
+    z-index: 99;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #bdbcbc;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+  /* Style added to the nav items when the nav button is clicked
+      to make the menu display, this style is removed to make
+      the menu hide. */
+  nav ul.displayed {
+    display: block;
+  }
+  /* Adjust the nav menu items appearance when in the drop down menu */
+  nav li {
+    min-width: 200px;
+    padding: 14px 0px;
+  }
+  nav li a {
+    padding: 14px 16px;
+  }
+}
+
+/**
+ * Style for sections
+ */
+.content:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.content h1 {
+  font-size: 40px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0.5em 0;
+}
+.content .text {
+  font-size: 14px;
+}
+.content .button {
+  background-color: #c0d600;
+  color: #58595b;
+  border-style: none;
+  padding: 11px 10px;
+  font-size: 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: inline-block;
+}
+a.button {
+  text-decoration: none;
+}
+
+/**
+ * Style for announcement section
+ */
+.announcement {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #ffffff;
+}
+.announcement > div {
+  width: 57%;
+}
+.announcement > div > div {
+  margin-left: 6vw;
+  margin-right: 6vw;
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+  z-index:2;
+}
+.announcement img {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.announcement .title {
+  font-size: 40px;
+}
+.announcement .text {
+  font-size: 24px;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+.announcement a {
+  text-decoration: none;
+  color: #c0d600;
+}
+
+/**
+ * Styles for default sections
+ */
+.default {
+  padding:0 6vw 12px;
+}
+.default:nth-child( odd ) {
+  background-color: #696969;
+  color: white;
+}
+.default:nth-child( even ) {
+  background-color: white;
+  color: #403c38;
+}
+.default img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  float:left;
+  margin:25px 25px 10px 0;
+}
+.default a {
+  text-decoration: none;
+}
+
+/*
+ * Overwrite the settings in each style for narrow screens
+ */
+@media screen and (max-width: 1023px) {
+  .announcement {
+    justify-content: flex-start;
+  }
+  .announcement > div {
+    width: 100%;
+  }
+  .announcement > div > div {
+    margin-right: 8vw;
+  }
+  .announcement .title {
+    margin-top: 0vw;
+    margin-bottom: 6vw;
+  }
+  .announcement .text {
+    margin-bottom: 9vw;
+  }
+  .announcement .text.adjust-margins {
+    margin-bottom: 2.5vw;
+  }
+}
+
