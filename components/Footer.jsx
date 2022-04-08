@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021, Oracle and/or its affiliates.
+ * Copyright (c) 2022, Oracle and/or its affiliates.
  * Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
  */
 
@@ -16,10 +16,11 @@ import youtubeImage from '../public/youtube.png';
 *
 * @param footerRenditionURLs the rendtion URLs for the image to be displayed in the footer
 */
-const Footer = ({ footerRenditionURLs }) => (
-  <footer id="footer">
-    {/* Logo */}
-    {footerRenditionURLs
+function Footer({ footerRenditionURLs }) {
+  return (
+    <footer id="footer">
+      {/* Logo */}
+      {footerRenditionURLs
       && (
         <picture>
           <source type="image/webp" srcSet={footerRenditionURLs.srcset} sizes="300px" />
@@ -32,8 +33,8 @@ const Footer = ({ footerRenditionURLs }) => (
           />
         </picture>
       )}
-    {/* Social Media Icons */}
-    {/* Note: the resolved img src will be the following
+      {/* Social Media Icons */}
+      {/* Note: the resolved img src will be the following
             publicPath + name_of_image_in_public_folder
         dev example, where publicPath is empty:
             src="14375eb7bad965f473afeb54c18b8ba4.png"
@@ -41,22 +42,23 @@ const Footer = ({ footerRenditionURLs }) => (
             src="/a/b/14375eb7bad965f473afeb54c18b8ba4.png"
         webpack.base.config.js ensures that, when set, publicPath has a trailing slash
     */}
-    <div className="social-media-menu">
-      <a href="https://www.facebook.com/Oracle/">
-        <img src={facebookImage} alt="Facebook" />
-      </a>
-      <a href="https://www.linkedin.com/company/oracle/">
-        <img src={linkedinImage} alt="Linked In" />
-      </a>
-      <a href="https://twitter.com/Oracle">
-        <img src={twitterImage} alt="Twitter" />
-      </a>
-      <a href="https://www.youtube.com/oracle/">
-        <img src={youtubeImage} alt="You Tube" />
-      </a>
-    </div>
-  </footer>
-);
+      <div className="social-media-menu">
+        <a href="https://www.facebook.com/Oracle/">
+          <img src={facebookImage} alt="Facebook" />
+        </a>
+        <a href="https://www.linkedin.com/company/oracle/">
+          <img src={linkedinImage} alt="Linked In" />
+        </a>
+        <a href="https://twitter.com/Oracle">
+          <img src={twitterImage} alt="Twitter" />
+        </a>
+        <a href="https://www.youtube.com/oracle/">
+          <img src={youtubeImage} alt="You Tube" />
+        </a>
+      </div>
+    </footer>
+  );
+}
 
 Footer.propTypes = {
   footerRenditionURLs: PropTypes.shape().isRequired,

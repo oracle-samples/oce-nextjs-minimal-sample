@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021, Oracle and/or its affiliates.
+ * Copyright (c) 2022, Oracle and/or its affiliates.
  * Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
  */
 import React from 'react';
@@ -12,7 +12,7 @@ import filterXSS from 'xss';
  *
  * @param section the section to be displayed
  */
-const Section = ({ section }) => {
+function Section({ section }) {
   const { renditionURLs } = section;
   const options = {
     stripIgnoreTag: true, // filter out all HTML not in the whitelist
@@ -64,7 +64,7 @@ const Section = ({ section }) => {
       </div>
     </section>
   );
-};
+}
 
 Section.propTypes = {
   section: PropTypes.shape().isRequired,

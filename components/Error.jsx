@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021, Oracle and/or its affiliates.
+ * Copyright (c) 2022, Oracle and/or its affiliates.
  * Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
  */
 import React from 'react';
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  *
  * @param errorObj the error object to be displayed
  */
-const Error = ({ errorObj }) => {
+function Error({ errorObj }) {
   if (!errorObj.hasError) return null;
   const { statusCode } = errorObj;
   return (
@@ -23,7 +23,7 @@ const Error = ({ errorObj }) => {
       }
     </div>
   );
-};
+}
 
 Error.propTypes = {
   errorObj: PropTypes.shape().isRequired,
